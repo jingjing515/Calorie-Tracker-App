@@ -1,17 +1,16 @@
+import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button } from "react-native";
 import EditEntry from "./EditEntry";
 
-export default function AllEntries({ navigation }) {
-  // const [ca]
+export default function OverLimitEntries({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>AllEntries</Text>
+      <Text>OverLimitEntries</Text>
       <Button
         title="Add An Entry"
         onPress={() => navigation.navigate("AddAnEntry")}
       />
-      <StatusBar style="auto" />
     </View>
   );
 }
