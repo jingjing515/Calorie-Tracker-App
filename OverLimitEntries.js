@@ -2,15 +2,20 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button } from "react-native";
 import EditEntry from "./EditEntry";
+import PressableButton from "./components/PressableButton";
 
 export default function OverLimitEntries({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>OverLimitEntries</Text>
-      <Button
-        title="Add An Entry"
-        onPress={() => navigation.navigate("AddAnEntry")}
-      />
+
+      <PressableButton
+        buttonPressed={() => navigation.navigate("AddAnEntry")}
+        pressedStyle={styles.pressedStyle}
+        customizedStyle={styles.button}
+      >
+        <Text>Add</Text>
+      </PressableButton>
     </View>
   );
 }

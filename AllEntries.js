@@ -1,17 +1,36 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import EditEntry from "./EditEntry";
-
+import PressableButton from "./components/PressableButton";
+//error 500 Unable to resolve "./PressableButton" from "EditEntry.js"
 export default function AllEntries({ navigation }) {
+  function listPressed(pressedList) {
+    navigation.navigate("EditEntry");
+  }
   // const [ca]
   return (
     <View style={styles.container}>
       <Text>AllEntries</Text>
-      <Button
-        title="Add An Entry"
-        onPress={() => navigation.navigate("AddAnEntry")}
-      />
       <StatusBar style="auto" />
+      <PressableButton
+        buttonPressed={() => navigation.navigate("AddAnEntry")}
+        pressedStyle={styles.pressedStyle}
+        customizedStyle={styles.button}
+      >
+        <Text>Add</Text>
+      </PressableButton>
+      {/* <ScrollView
+        // alwaysBounceVertical={false}
+        contentContainerStyle={styles.contentContainerStyle}
+      >
+        {calories.map((calories) => {
+          return (
+            <View key={calories.id} style={styles.textContainer}>
+              <Text style={styles.text}>{calories.text}</Text>
+            </View>
+          );
+        })}
+      </ScrollView> */}
     </View>
   );
 }

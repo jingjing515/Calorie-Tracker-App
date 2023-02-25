@@ -11,6 +11,8 @@ import { Ionicons } from "@expo/vector-icons";
 import Home from "./Home";
 import AddAnEntry from "./AddAnEntry";
 
+const Tab = createBottomTabNavigator();
+
 const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
 
@@ -24,6 +26,24 @@ export default function App() {
           headerTitleStyle: { fontSize: 20 },
         }}
       >
+        {/* <Stack.Screen name="Home" component={Home} /> */}
+
+        {/* useEffect(() =>
+      {navigation.setOptions({
+        // title: route.params.Tab.Screen.name,
+        headerRight: () => {
+          return (
+            <PressableButton
+              buttonPressed={() => navigation.navigate("AddAnEntry")}
+              pressedStyle={styles.pressedStyle}
+              customizedStyle={styles.button}
+            >
+              <Ionicons name="add" size={30} color="#eee" />
+            </PressableButton>
+          );
+        },
+      })}
+      ) */}
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="AddAnEntry" component={AddAnEntry} />
         <Stack.Screen name="Edit Entry" component={EditEntry} />
