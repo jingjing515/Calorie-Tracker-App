@@ -47,8 +47,9 @@ export default function Home({ navigation }) {
   }
   return (
     <Tab.Navigator
+      // tabBarOptions={{ tabBarBackground: "#303f9f" }}
       screenOptions={{
-        // tabBarBackground:{"#303f9f"},
+        // tabBarBackground: "#303f9f",
         headerStyle: { backgroundColor: "#303f9f" },
         headerTintColor: "#eee",
         headerTitleStyle: { fontSize: 20 },
@@ -62,6 +63,10 @@ export default function Home({ navigation }) {
             <Ionicons name="add" size={30} style={{ color: "#eee" }} />
           </PressableButton>
         ),
+        tabBarActiveBackgroundColor: "#303f9f",
+        tabBarInactiveBackgroundColor: "#303f9f",
+        tabBarActiveTintColor: "#eee",
+        tabBarActiveTintColor: "#ffeb3b",
       }}
     >
       <Tab.Screen
