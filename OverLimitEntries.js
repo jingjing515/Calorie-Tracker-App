@@ -6,11 +6,11 @@ import PressableButton from "./components/PressableButton";
 import EntriesList from "./components/EntriesList";
 import { styles } from "./components/Styles";
 
-export default function OverLimitEntries({ navigation, entry }) {
-  const overLimitEntry = entry.filter((item) => item.calories > 500); //if empty,entry=[]
+export default function OverLimitEntries({ navigation, entries }) {
+  const overLimitEntry = entries.filter((item) => item.calories > 500); //if empty,entry=[]
   return (
     <View style={styles.container}>
-      <EntriesList entry={overLimitEntry} navigation={navigation} />
+      <EntriesList entries={overLimitEntry} navigation={navigation} />
     </View>
   );
 }

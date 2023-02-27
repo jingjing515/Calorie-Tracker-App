@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
   addButton: {
     alignItems: "flex-end",
     backgroundColor: "#303f9f",
-    width: "47%",
+    width: "10%",
     height: "70%",
     marginHorizontal: 10,
     marginVertical: 10,
@@ -71,6 +71,15 @@ export const inputStyles = StyleSheet.create({
     width: "100%",
 
     // marginVertical: 1,
+  },
+  editInput: {
+    color: "#303f9f",
+    width: "100%",
+    marginVertical: 10,
+    alignItems: "center",
+    fontSize: 25,
+    justifyContent: "center",
+    alignSelf: "center",
   },
   button: {
     width: "100%",
@@ -101,10 +110,4 @@ export const inputStyles = StyleSheet.create({
     color: "#eee",
     alignItems: "center",
   },
-  // button: {
-  //   marginHorizontal: 10,
-  //   width: "30%",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  // },
 });

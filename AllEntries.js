@@ -7,11 +7,11 @@ import { deleteFromDB, writeToDB } from "./Firebase/firestoreHelper";
 import EntriesList from "./components/EntriesList";
 import { styles } from "./components/Styles";
 
-export default function AllEntries({ navigation, entry }) {
+export default function AllEntries({ navigation, entries }) {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <EntriesList entry={entry} navigation={navigation} />
+      <EntriesList entries={entries} navigation={navigation} />
       {/* <EntriesList type="all" /> */}
       {/* <ScrollView
         // alwaysBounceVertical={false}

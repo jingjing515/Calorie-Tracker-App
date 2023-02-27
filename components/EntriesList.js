@@ -13,15 +13,15 @@ import { deleteFromDB, writeToDB } from "../Firebase/firestoreHelper";
 import EntriesItem from "./EntriesItem";
 
 // export default function EntriesList({ type }) {
-export default function EntriesList({ entry, navigation }) {
-  const [entries, setEntries] = useState([]);
-  function entryPressed(entry) {
-    navigation.navigate("EditEntry", { entry: entry });
+export default function EntriesList({ entries, navigation }) {
+  // const [entries, setEntries] = useState([]);
+  function entryPressed(entries) {
+    navigation.navigate("EditEntry", { entriesItem: entries });
   }
   return (
     <FlatList
       // contentContainerStyle={styles.contentContainerStyle}
-      data={entry}
+      data={entries}
       renderItem={({ item }) => {
         return (
           // <Text>
@@ -30,7 +30,7 @@ export default function EntriesList({ entry, navigation }) {
           // </Text>
           // onEntryPress={entryPressed}
           <EntriesItem
-            entry={item}
+            entries={item}
             onEntryPress={entryPressed}
             // navigation={navigation}
           />

@@ -10,8 +10,6 @@ import Home from "./Home";
 import AddAnEntry from "./AddAnEntry";
 import PressableButton from "./components/PressableButton";
 
-const Tab = createBottomTabNavigator();
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -25,7 +23,7 @@ export default function App() {
         }}
       >
         <Stack.Screen
-          name="Back"
+          name="Home"
           component={Home}
           options={{
             headerShown: false,

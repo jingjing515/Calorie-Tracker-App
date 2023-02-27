@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
 import { styles } from "./Styles";
 
-export default function EntriesItem({ entry, onEntryPress }) {
+export default function EntriesItem({ entries, onEntryPress }) {
   return (
     <View>
       <Pressable
@@ -16,11 +16,11 @@ export default function EntriesItem({ entry, onEntryPress }) {
           // }
         }}
         android_ripple={{ color: "red" }}
-        onPress={() => onEntryPress(entry)}
+        onPress={() => onEntryPress(entries)}
       >
         <Text style={styles.text}>
-          {entry.calories}
-          {entry.description}
+          {entries.calories}
+          {entries.description}
         </Text>
       </Pressable>
     </View>
