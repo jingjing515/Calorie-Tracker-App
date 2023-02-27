@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 import PressableButton from "./components/PressableButton";
 import { Ionicons } from "@expo/vector-icons";
 import Card from "./components/Card";
+import { styles } from "./components/Styles";
 
-export default function EditEntry({ navigation }) {
+export default function EditEntry({ entry, navigation }) {
   function onSubmitEntered(changedText) {
     console.log(changedText);
     navigation.navigate("Home");
@@ -13,10 +14,13 @@ export default function EditEntry({ navigation }) {
     navigation.navigate("Home");
   }
   return (
-    <View>
+    <View style={styles.container}>
       <Card>
-        <Text>EditEntry</Text>
-        <Input sendChangedText={onTextEntered} />
+        {/* <Text>EditEntry</Text> */}
+        <Text style={styles.text}>
+          {entry}
+          {/* {entry.description} */}
+        </Text>
       </Card>
     </View>
   );

@@ -21,6 +21,7 @@ export default function Home({ navigation }) {
   return (
     <Tab.Navigator
       screenOptions={{
+        // tabBarBackground:{"#303f9f"},
         headerStyle: { backgroundColor: "#303f9f" },
         headerTintColor: "#eee",
         headerTitleStyle: { fontSize: 20 },
@@ -36,22 +37,6 @@ export default function Home({ navigation }) {
         ),
       }}
     >
-      {/* useEffect(() =>
-      {navigation.setOptions({
-        // title: route.params.Tab.Screen.name,
-        headerRight: () => {
-          return (
-            <PressableButton
-              buttonPressed={() => navigation.navigate("AddAnEntry")}
-              pressedStyle={styles.pressedStyle}
-              customizedStyle={styles.button}
-            >
-              <Ionicons name="add" size={30} color="#eee" />
-            </PressableButton>
-          );
-        },
-      })}
-      ) */}
       <Tab.Screen
         name="AllEntries"
         // component={AllEntries}

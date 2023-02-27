@@ -32,7 +32,7 @@ export default function App() {
           }}
         />
         <Stack.Screen name="AddAnEntry" component={AddAnEntry} />
-        <Stack.Screen name="Edit Entry" component={EditEntry} />
+        <Stack.Screen name="EditEntry" component={EditEntry} />
       </Stack.Navigator>
     </NavigationContainer>
   );

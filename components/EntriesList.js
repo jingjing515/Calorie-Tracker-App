@@ -10,91 +10,74 @@ import {
 import { firestore } from "../Firebase/firebase-setup";
 import { collection, onSnapshot } from "firebase/firestore";
 import { deleteFromDB, writeToDB } from "../Firebase/firestoreHelper";
+import EntriesItem from "./EntriesItem";
 
 // export default function EntriesList({ type }) {
-export default function EntriesList({ entry }) {
+export default function EntriesList({ entry, navigation }) {
   const [entries, setEntries] = useState([]);
-
-  //..
-
-  // useEffect(() => {
-  //   const unsubscribe = onSnapshot(
-  //     collection(firestore, "entries"),
-  //     (querySnapshot) => {
-  //       if (querySnapshot.empty) {
-  //         setEntries([]);
-  //       } else {
-  //         let entriesFromDB = [];
-  //         //add a condition
-  //         // if (type === "over") {
-  //         //   querySnapshot.docs.forEach((snapDoc) => {
-  //         //     if (snapDoc.data().enteredCalories > 500) {
-  //         //       entriesFromDB.push({ ...snapDoc.data(), id: snapDoc.id });
-  //         //     }
-  //         //   });
-  //         //   console.log(entriesFromDB);
-  //         //   setEntries(entriesFromDB);
-  //         // } else {
-  //         //   querySnapshot.docs.forEach((snapDoc) => {
-  //         //     entriesFromDB.push({ ...snapDoc.data(), id: snapDoc.id });
-  //         //   });
-  //         //   console.log(entriesFromDB);
-  //         //   setEntries(entriesFromDB);
-  //         // }
-  //         //condition over
-  //         //try
-  //         // if (type === "all") {
-  //         //   firestore
-  //         //     .collection("entries")
-  //         //     .get()
-  //         //     .then((querySnapshot) => {
-  //         //       let entries = [];
-  //         //       querySnapshot.forEach((doc) => {
-  //         //         entries.push({ ...snapDoc.data(), id: snapDoc.id });
-  //         //       });
-  //         //       setEntries(entries);
-  //         //       console.log(entries);
-  //         //     });
-  //         // } else {
-  //         //   firestore
-  //         //     .collection("entries")
-  //         //     .where("enteredCalories", ">", 500)
-  //         //     .get()
-  //         //     .then((querySnapshot) => {
-  //         //       let entries = [];
-  //         //       querySnapshot.forEach((doc) => {
-  //         //         entries.push({ ...snapDoc.data(), id: snapDoc.id });
-  //         //       });
-  //         //       setEntries(entries);
-  //         //       console.log(entries);
-  //         //     });
-  //         // }
-
-  //         //try over
-  //       }
-  //     }
-  //   );
-  // this is a cleanup function that will be called automatically when the component is unmounted
-  //   return () => {
-  //     unsubscribe();
-  //   };
-  // }, [type]);
-
+  function entryPressed(entry) {
+    navigation.navigate("EditEntry", { entry: entry });
+  }
   return (
     <FlatList
       // contentContainerStyle={styles.contentContainerStyle}
       data={entry}
       renderItem={({ item }) => {
         return (
-          <Text>
-            {item.calories}
-            {item.description}
-          </Text>
+          // <Text>
+          //   {item.calories}
+          //   {item.description}
+          // </Text>
+          // onEntryPress={entryPressed}
+          <EntriesItem
+            entry={item}
+            onEntryPress={entryPressed}
+            // navigation={navigation}
+          />
         );
       }}
     />
   );
 }
+//..
+
+// useEffect(() => {
+//   const unsubscribe = onSnapshot(
+//     collection(firestore, "entries"),
+//     (querySnapshot) => {
+//       if (querySnapshot.empty) {
+//         setEntries([]);
+//       } else {
+//         let entriesFromDB = [];
+//         //add a condition
+//         // if (type === "over") {
+//         //   querySnapshot.docs.forEach((snapDoc) => {
+//         //     if (snapDoc.data().enteredCalories > 500) {
+//         //       entriesFromDB.push({ ...snapDoc.data(), id: snapDoc.id });
+//         //     }
+//         //   });
+//         //   console.log(entriesFromDB);
+//         //   setEntries(entriesFromDB);
+//         // } else {
+//         //   querySnapshot.docs.forEach((snapDoc) => {
+//         //     entriesFromDB.push({ ...snapDoc.data(), id: snapDoc.id });
+//         //   });
+//         //   console.log(entriesFromDB);
+//         //   setEntries(entriesFromDB);
+//         // }
+//         //condition over
+//       }
+//     }
+//   );
+// this is a cleanup function that will be called automatically when the component is unmounted
+//   return () => {
+//     unsubscribe();
+//   };
+// }, [type]);
+
+// function entryPressed(pressedEntry) {
+//   navigation.navigate("EditEntry", { enrty: pressedEntry });
+// }
 
 const styles = StyleSheet.create({
   container: {

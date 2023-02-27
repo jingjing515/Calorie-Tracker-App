@@ -18,9 +18,7 @@ import { styles } from "./components/Styles";
 export default function AddAnEntry({ navigation }) {
   const [calories, setCalories] = useState([]);
   const [description, setDescription] = useState([]);
-  //   function onDataEntered(data) {
-  //     sendChangedText(data);
-  //   }
+
   function onTextEntered(changedText) {
     // setEnteredText(changedText);
     // update goals array with the new text

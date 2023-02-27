@@ -8,29 +8,11 @@ import EntriesList from "./components/EntriesList";
 import { styles } from "./components/Styles";
 
 export default function AllEntries({ navigation, entry }) {
-  // function listPressed(pressedList) {
-  //   navigation.navigate("EditEntry");
-  // }
-  // const [ca]
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {/* <PressableButton
-        buttonPressed={() => navigation.navigate("AddAnEntry")}
-        pressedStyle={styles.pressedStyle}
-        customizedStyle={styles.button}
-      >
-        <Text>Add</Text>
-      </PressableButton> */}
-      <EntriesList entry={entry} />
+      <EntriesList entry={entry} navigation={navigation} />
       {/* <EntriesList type="all" /> */}
-      {/* <PressableButton
-        buttonPressed={() => navigation.navigate("EditEntry")}
-        pressedStyle={styles.pressedStyle}
-        customizedStyle={styles.button}
-      >
-        <Text>editEntry</Text>
-      </PressableButton> */}
       {/* <ScrollView
         // alwaysBounceVertical={false}
         contentContainerStyle={styles.contentContainerStyle}
