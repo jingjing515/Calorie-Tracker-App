@@ -4,13 +4,13 @@ import {
   Text,
   TextInput,
   Button,
-  Modal,
   StyleSheet,
   Keyboard,
 } from "react-native";
 import { useState } from "react";
 import { inputStyles } from "./Styles";
 import PressableButton from "./PressableButton";
+import { styles } from "./Styles";
 
 export default function Input({ sendChangedText }) {
   const [calories, setCalories] = useState("");
@@ -48,7 +48,6 @@ export default function Input({ sendChangedText }) {
         style={inputStyles.input}
         maxLength={10}
       />
-
       <Text style={inputStyles.title}>Description</Text>
       <TextInput
         style={inputStyles.input}
@@ -57,7 +56,6 @@ export default function Input({ sendChangedText }) {
           setDescription(description);
         }}
       />
-
       <View style={inputStyles.buttonContainer}>
         {/* <View style={inputStyles.button}> */}
 
@@ -68,68 +66,68 @@ export default function Input({ sendChangedText }) {
           pressedStyle={styles.pressedStyle}
           customizedStyle={styles.button}
         >
-          <Text>Reset</Text>
+          <Text style={inputStyles.buttonText}>Reset</Text>
+        </PressableButton>
+        {/* </View> */}
+
+        {/* <View style={inputStyles.button}> */}
+
+        <PressableButton
+          buttonPressed={() => {
+            const caloriesValid = checkCalories(calories);
+            const descriptionValid = checkDescription(description);
+            console.log(caloriesValid);
+            if (descriptionValid && caloriesValid) {
+              sendChangedText({
+                enteredCalories: calories,
+                enteredDescription: description,
+              });
+            }
+            // submitPressed();
+          }}
+          pressedStyle={styles.pressedStyle}
+          customizedStyle={styles.button}
+        >
+          <Text style={inputStyles.buttonText}>Submit</Text>
         </PressableButton>
       </View>
-
-      {/* <View style={inputStyles.button}> */}
-
-      <PressableButton
-        buttonPressed={() => {
-          const caloriesValid = checkCalories(calories);
-          const descriptionValid = checkDescription(description);
-          console.log(caloriesValid);
-          if (descriptionValid && caloriesValid) {
-            sendChangedText({
-              enteredcalories: calories,
-              entereddescription: description,
-            });
-          }
-          // submitPressed();
-        }}
-        pressedStyle={styles.pressedStyle}
-        customizedStyle={styles.button}
-      >
-        <Text>Submit</Text>
-      </PressableButton>
     </View>
-    // </View>
     // </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#aaa",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    height: 100,
-    width: 100,
-  },
-  input: {
-    // borderBottomColor: "#552055",
-    // borderBottomWidth: 2,
-    width: "50%",
-    marginVertical: 10,
-    borderColor: "#552055",
-    borderWidth: 2,
-  },
-  buttonContainer: {
-    flexDirection: "row",
-  },
-  button: {
-    marginHorizontal: 10,
-    width: "30%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  pressedStyle: {
-    opacity: 100,
-    width: "100%",
-    alignItems: "center",
-    backgroundColor: "#f5f5aa",
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#aaa",
+//     alignItems: "center",
+//     justifyContent: "center",
+//   },
+//   image: {
+//     height: 100,
+//     width: 100,
+//   },
+//   input: {
+//     // borderBottomColor: "#",
+//     // borderBottomWidth: 2,
+//     width: "50%",
+//     marginVertical: 10,
+//     borderColor: "#303f9f",
+//     borderWidth: 2,
+//   },
+//   buttonContainer: {
+//     flexDirection: "row",
+//   },
+//   button: {
+//     marginHorizontal: 10,
+//     width: "30%",
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+//   pressedStyle: {
+//     opacity: 100,
+//     width: "100%",
+//     alignItems: "center",
+//     backgroundColor: "#f5f5aa",
+//   },
+// });

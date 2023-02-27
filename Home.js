@@ -7,25 +7,34 @@ import React, { useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { firestore } from "./Firebase/firebase-setup";
 import PressableButton from "./components/PressableButton";
+import { styles } from "./components/Styles";
 const Tab = createBottomTabNavigator();
-
-export default function Home({ route, navigation }) {
+const entry = [
+  { calories: 300, description: "lunch" },
+  { calories: 600, description: "snack" },
+];
+export default function Home({ navigation }) {
+  function entryPressed(pressedEntry) {
+    // console.log("pressed ", pressedId);
+    navigation.navigate("EditEntry", { entryItem: pressedEntry });
+  }
   return (
-    // <View>
     <Tab.Navigator
-      screenOptions={() => ({
-        headerRight: () => {
-          return (
-            <PressableButton
-              buttonPressed={() => navigation.navigate("AddAnEntry")}
-              pressedStyle={styles.pressedStyle}
-              customizedStyle={styles.button}
-            >
-              <Ionicons name="add" size={30} color="#eee" />
-            </PressableButton>
-          );
-        },
-      })}
+      screenOptions={{
+        headerStyle: { backgroundColor: "#303f9f" },
+        headerTintColor: "#eee",
+        headerTitleStyle: { fontSize: 20 },
+        headerRight: () => (
+          <PressableButton
+            buttonPressed={() => navigation.navigate("AddAnEntry")}
+            pressedStyle={styles.pressedStyle}
+            customizedStyle={styles.addButton}
+          >
+            {/* ERROR  TypeError: navigation.navigate is not a function. (In 'navigation.navigate("AddAnEntry")', 'navigation.navigate' is undefined) */}
+            <Ionicons name="add" size={30} style={{ color: "#eee" }} />
+          </PressableButton>
+        ),
+      }}
     >
       {/* useEffect(() =>
       {navigation.setOptions({
@@ -45,9 +54,10 @@ export default function Home({ route, navigation }) {
       ) */}
       <Tab.Screen
         name="AllEntries"
-        component={AllEntries}
+        // component={AllEntries}
+        children={() => <AllEntries navigation={navigation} entry={entry} />}
         options={{
-          headerShown: false,
+          // headerShown: false,
           tabBarLabel: "All Entries",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
@@ -56,9 +66,12 @@ export default function Home({ route, navigation }) {
       />
       <Tab.Screen
         name="OverLimitEntries"
-        component={OverLimitEntries}
+        // component={OverLimitEntries}
+        children={() => (
+          <OverLimitEntries navigation={navigation} entry={entry} />
+        )}
         options={{
-          headerShown: false,
+          // headerShown: false,
           tabBarLabel: "Over Limit Entries",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="bell" color={color} size={size} />
@@ -67,15 +80,6 @@ export default function Home({ route, navigation }) {
       />
       {/* console.log(firestore); */}
     </Tab.Navigator>
-    // </View>
   );
+  // </View>
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

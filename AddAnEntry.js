@@ -11,6 +11,9 @@ import {
 } from "react-native";
 import { useState } from "react";
 import Input from "./components/Input";
+import { writeToDB } from "./Firebase/firestoreHelper";
+import EntriesList from "./components/EntriesList";
+import { styles } from "./components/Styles";
 
 export default function AddAnEntry({ navigation }) {
   const [calories, setCalories] = useState([]);
@@ -23,53 +26,16 @@ export default function AddAnEntry({ navigation }) {
     // update goals array with the new text
     const newData = { text: changedText, id: Math.random() };
 
-    // const newArray = [...goals, newGoal];
-    setCalories((prevCalories) => {
-      return [...prevCalories, newData];
-    });
-    console.log(changedText);
+    console.log(newData);
+    writeToDB(newData);
+
     navigation.navigate("Home");
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       {/* <Text>addanentry</Text> */}
       <Input sendChangedText={onTextEntered} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "stretch",
-    justifyContent: "center",
-  },
-  topContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  bottomContainer: {
-    flex: 4,
-    backgroundColor: "#dcd",
-    alignItems: "center",
-
-    // alignSelf: "stretch",
-  },
-  scrollContentsStyle: {
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 80,
-    color: "purple",
-
-    padding: 15,
-  },
-  textContainer: {
-    backgroundColor: "#999",
-    borderRadius: 5,
-    marginBottom: 15,
-  },
-});

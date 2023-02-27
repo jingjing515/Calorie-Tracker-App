@@ -2,31 +2,43 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
 import EditEntry from "./EditEntry";
 import PressableButton from "./components/PressableButton";
-//error 500 Unable to resolve "./PressableButton" from "EditEntry.js"
-export default function AllEntries({ navigation }) {
-  function listPressed(pressedList) {
-    navigation.navigate("EditEntry");
-  }
+import { firestore } from "./Firebase/firebase-setup";
+import { deleteFromDB, writeToDB } from "./Firebase/firestoreHelper";
+import EntriesList from "./components/EntriesList";
+import { styles } from "./components/Styles";
+
+export default function AllEntries({ navigation, entry }) {
+  // function listPressed(pressedList) {
+  //   navigation.navigate("EditEntry");
+  // }
   // const [ca]
   return (
     <View style={styles.container}>
-      <Text>AllEntries</Text>
       <StatusBar style="auto" />
-      <PressableButton
+      {/* <PressableButton
         buttonPressed={() => navigation.navigate("AddAnEntry")}
         pressedStyle={styles.pressedStyle}
         customizedStyle={styles.button}
       >
         <Text>Add</Text>
-      </PressableButton>
+      </PressableButton> */}
+      <EntriesList entry={entry} />
+      {/* <EntriesList type="all" /> */}
+      {/* <PressableButton
+        buttonPressed={() => navigation.navigate("EditEntry")}
+        pressedStyle={styles.pressedStyle}
+        customizedStyle={styles.button}
+      >
+        <Text>editEntry</Text>
+      </PressableButton> */}
       {/* <ScrollView
         // alwaysBounceVertical={false}
         contentContainerStyle={styles.contentContainerStyle}
       >
-        {calories.map((calories) => {
+        {data.map((data) => {
           return (
-            <View key={calories.id} style={styles.textContainer}>
-              <Text style={styles.text}>{calories.text}</Text>
+            <View key={data.id} style={styles.textContainer}>
+              <Text style={styles.text}>{data.text}</Text>
             </View>
           );
         })}
@@ -34,12 +46,3 @@ export default function AllEntries({ navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
