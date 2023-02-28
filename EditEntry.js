@@ -45,50 +45,62 @@ export default function EditEntry({ route, navigation }) {
   function checkPressed() {
     changeReviewStatus(route.params.id);
     navigation.navigate("Home", { screen: "OverLimitEntries" });
+    // , { screen: "OverLimitEntries" }
   }
   return (
     <View style={styles.container}>
-      {/* <Card> */}
-      <Text style={inputStyles.editInput}>
-        {route.params.text.enteredCalories}
-        {route.params.text.enteredDescription}
-      </Text>
+      <Card>
+        <View style={inputStyles.container}>
+          <Text style={inputStyles.editInput}>
+            <Text style={inputStyles.editTitle}>Calories: </Text>
+            {route.params.text.enteredCalories}
+          </Text>
+          <Text style={inputStyles.editInput}>
+            <Text style={inputStyles.editTitle}>Description: </Text>
+            {route.params.text.enteredDescription}
+          </Text>
 
-      {route.params.text.enteredCalories > 500 &&
-        route.params.review == false && (
-          <View style={inputStyles.buttonContainer}>
-            <PressableButton
-              customizedStyle={styles.button}
-              pressedStyle={styles.pressedStyle}
-              buttonPressed={onDeletePressed}
-            >
-              <Ionicons name="trash" size={30} style={{ color: "#eee" }} />
-              {/* <Text>X</Text> */}
-            </PressableButton>
-            <PressableButton
-              buttonPressed={onCheckPressed}
-              pressedStyle={styles.pressedStyle}
-              customizedStyle={styles.button}
-            >
-              <Ionicons name="checkmark" size={30} style={{ color: "#eee" }} />
-            </PressableButton>
-          </View>
-        )}
+          {route.params.text.enteredCalories > 500 &&
+            route.params.review == false && (
+              <View style={inputStyles.buttonContainer}>
+                <PressableButton
+                  customizedStyle={styles.button}
+                  pressedStyle={styles.pressedStyle}
+                  buttonPressed={onDeletePressed}
+                >
+                  <Ionicons name="trash" size={30} style={{ color: "#eee" }} />
+                  {/* <Text>X</Text> */}
+                </PressableButton>
+                <PressableButton
+                  buttonPressed={onCheckPressed}
+                  pressedStyle={styles.pressedStyle}
+                  customizedStyle={styles.button}
+                >
+                  <Ionicons
+                    name="checkmark"
+                    size={30}
+                    style={{ color: "#eee" }}
+                  />
+                </PressableButton>
+              </View>
+            )}
 
-      {(route.params.text.enteredCalories <= 500 ||
-        (route.params.text.enteredCalories > 500 && route.params.review)) && (
-        <View style={inputStyles.buttonContainer}>
-          <PressableButton
-            customizedStyle={styles.button}
-            pressedStyle={styles.pressedStyle}
-            buttonPressed={onDeletePressed}
-          >
-            <Ionicons name="trash" size={30} style={{ color: "#eee" }} />
-            {/* <Text>X</Text> */}
-          </PressableButton>
+          {(route.params.text.enteredCalories <= 500 ||
+            (route.params.text.enteredCalories > 500 &&
+              route.params.review)) && (
+            <View style={inputStyles.buttonContainer}>
+              <PressableButton
+                customizedStyle={styles.button}
+                pressedStyle={styles.pressedStyle}
+                buttonPressed={onDeletePressed}
+              >
+                <Ionicons name="trash" size={30} style={{ color: "#eee" }} />
+                {/* <Text>X</Text> */}
+              </PressableButton>
+            </View>
+          )}
         </View>
-      )}
-      {/* </Card> */}
+      </Card>
     </View>
   );
 }

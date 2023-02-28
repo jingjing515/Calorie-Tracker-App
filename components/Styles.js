@@ -6,17 +6,30 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  inputContainer: {
+    // flex: 1,
+    height: "100%",
+    width: "80%",
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
   textContainer: {
-    backgroundColor: "#999",
+    backgroundColor: "#303f9f",
+    width: "90%",
+    // height: 45,
+    marginTop: 15,
     borderRadius: 5,
-    marginBottom: 15,
+    marginBottom: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    alignSelf: "center",
   },
+
   cardStyle: {
     height: "50%",
-    width: "50%",
+    width: "90%",
     // flexWrap: "wrap",
     borderWidth: 1,
     borderRadius: 30,
@@ -41,7 +54,7 @@ export const styles = StyleSheet.create({
     height: "70%",
     marginHorizontal: 10,
     marginVertical: 10,
-    color: "red",
+    color: "#7986cb",
   },
   addButton: {
     alignItems: "flex-end",
@@ -51,6 +64,17 @@ export const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 10,
     color: "red",
+  },
+  text: {
+    color: "#eee",
+    marginLeft: 15,
+    fontSize: 20,
+    alignItems: "center",
+  },
+  calorieStyle: {
+    color: "#eee",
+    alignItems: "flex-end",
+    fontSize: 20,
   },
 });
 
@@ -77,7 +101,7 @@ export const inputStyles = StyleSheet.create({
     width: "100%",
     marginVertical: 10,
     alignItems: "center",
-    fontSize: 25,
+    fontSize: 15,
     justifyContent: "center",
     alignSelf: "center",
   },
@@ -100,6 +124,12 @@ export const inputStyles = StyleSheet.create({
     marginVertical: 10,
     color: "#303f9f",
     fontSize: 25,
+  },
+  editTitle: {
+    width: "100%",
+    marginVertical: 10,
+    color: "#303f9f",
+    fontSize: 20,
   },
   errorText: {
     width: "100%",
