@@ -83,6 +83,7 @@ export default function Input({ sendChangedText }) {
                 enteredDescription: description,
               });
             }
+
             // submitPressed();
           }}
           pressedStyle={styles.pressedStyle}

@@ -4,23 +4,23 @@ import React from "react";
 import { styles } from "./Styles";
 
 export default function EntriesItem({ entries, onEntryPress }) {
+  console.log("entries", entries);
   return (
     <View>
       <Pressable
         style={({ pressed }) => {
           return [styles.textContainer, pressed && styles.pressedStyle];
-          // return pressed ? styles.pressedStyle : null;
-          // if (pressed)
-          // {
-          //   return styles.pressedStyle
-          // }
         }}
         android_ripple={{ color: "red" }}
-        onPress={() => onEntryPress(entries)}
+        onPress={onEntryPress}
       >
         <Text style={styles.text}>
-          {entries.calories}
-          {entries.description}
+          {entries.text.enteredCalories}
+          {entries.review === false && entries.text.enteredCalories > 500 && (
+            <Ionicons name="add" size={30} style={{ color: "#eee" }} />
+          )}
+
+          {entries.text.enteredDescription}
         </Text>
       </Pressable>
     </View>

@@ -40,7 +40,7 @@ export default function Home({ navigation }) {
   }, []);
 
   const [entries, setEntries] = useState([]);
-
+  console.log(entries);
   function entryPressed(pressedEntry) {
     // console.log("pressed ", pressedId);
     navigation.navigate("EditEntry", { entryItem: pressedEntry });

@@ -7,7 +7,16 @@ import EntriesList from "./components/EntriesList";
 import { styles } from "./components/Styles";
 
 export default function OverLimitEntries({ navigation, entries }) {
-  const overLimitEntry = entries.filter((item) => item.calories > 500); //if empty,entry=[]
+  function checkEmpty() {
+    let overLimitEntry = [];
+    if (entries.length) {
+      overLimitEntry = entries.filter(
+        (item) => item.text.enteredCalories > 500 && item.review === false
+      );
+    }
+    return overLimitEntry;
+  }
+  const overLimitEntry = checkEmpty(); //if empty,entry=[]
   return (
     <View style={styles.container}>
       <EntriesList entries={overLimitEntry} navigation={navigation} />

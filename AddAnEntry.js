@@ -16,13 +16,13 @@ import EntriesList from "./components/EntriesList";
 import { styles } from "./components/Styles";
 
 export default function AddAnEntry({ navigation }) {
-  const [calories, setCalories] = useState([]);
-  const [description, setDescription] = useState([]);
+  // const [calories, setCalories] = useState([]);
+  // const [description, setDescription] = useState([]);
 
   function onTextEntered(changedText) {
     // setEnteredText(changedText);
     // update goals array with the new text
-    const newData = { text: changedText, id: Math.random() };
+    const newData = { text: changedText, review: false };
 
     console.log(newData);
     writeToDB(newData);

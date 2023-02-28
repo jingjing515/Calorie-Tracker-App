@@ -14,24 +14,22 @@ import EntriesItem from "./EntriesItem";
 
 // export default function EntriesList({ type }) {
 export default function EntriesList({ entries, navigation }) {
+  console.log("entriesList works");
+  console.log(entries);
   // const [entries, setEntries] = useState([]);
-  function entryPressed(entries) {
-    navigation.navigate("EditEntry", { entriesItem: entries });
+  function entryPressed(entry) {
+    navigation.navigate("EditEntry", entry);
   }
   return (
     <FlatList
-      // contentContainerStyle={styles.contentContainerStyle}
       data={entries}
       renderItem={({ item }) => {
         return (
-          // <Text>
-          //   {item.calories}
-          //   {item.description}
-          // </Text>
-          // onEntryPress={entryPressed}
           <EntriesItem
             entries={item}
-            onEntryPress={entryPressed}
+            onEntryPress={() => {
+              entryPressed(item);
+            }}
             // navigation={navigation}
           />
         );
