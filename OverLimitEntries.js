@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button } from "react-native";
-import EditEntry from "./EditEntry";
+// import EditEntry from "./EditEntry";
 import PressableButton from "./components/PressableButton";
 import EntriesList from "./components/EntriesList";
 import { styles } from "./components/Styles";

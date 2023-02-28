@@ -7,7 +7,7 @@ import { styles } from "./components/Styles";
 import { inputStyles } from "./components/Styles";
 import EntriesItem from "./components/EntriesItem";
 import { deleteFromDB, changeReviewStatus } from "./Firebase/firestoreHelper";
-import OverLimitEntries from "./OverLimitEntries";
+// import OverLimitEntries from "./OverLimitEntries";
 
 export default function EditEntry({ route, navigation }) {
   console.log(route.params);
