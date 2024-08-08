@@ -6,20 +6,20 @@ The Calorie Tracker App is a cross-platform mobile application built using React
 
 - **All Entries Screen**: View a list of all meal entries with calorie counts.
   
-  ![All Entries Screen](./assets/AllEntries.png)
+  <img src="./assets/AllEntries.png" alt="All Entries Screen" width="300"/>
 
 - **Over-limit Entries Screen**: Automatically mark and view entries with calorie counts over 500.
   
-  ![Over-limit Entries Screen](./assets/OverLimitEntries.png)
+  <img src="./assets/OverLimtEntries.png" alt="Over Limit Entries Screen" width="300"/>
 
 - **Edit Entry**: Update or delete existing entries, and mark over-limit entries as reviewed.
 
-  ![Edit Entry Screen 1](./assets/EditEntry1.png)
-  ![Edit Entry Screen 2](./assets/EditEntry2.png)
+  <img src="./assets/EditEntry1.png" alt="Edit Entry Screen 1" width="300"/>
+  <img src="./assets/EditEntry2.png" alt="Edit Entry Screen 2" width="300"/>
 
 - **Add Entry**: Add new meal entries with validation for calorie and description inputs.
   
-  ![Add Entry Screen](./assets/AddAnEntry.png)
+  <img src="./assets/AddAnEntry.png" alt="Add Entry Screen" width="300"/>
 
 ## Technologies Used
 
