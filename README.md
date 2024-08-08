@@ -2,6 +2,17 @@
 
 The Calorie Tracker App is a cross-platform mobile application built using React Native. This app allows users to track their daily calorie intake, manage entries, and store data in a Firebase Firestore database. The application is designed to work seamlessly on both iOS and Android devices.
 
+## Technologies Used
+
+- **React Native**: Framework for building the cross-platform mobile application.
+- **Firebase Firestore**: Cloud-hosted NoSQL database for backend database to store and sync data in real-time.
+- **React Navigation**: For navigating between screens using a nested navigation structure.
+- **Environment Variables**: Using `react-native-dotenv` or `react-native-config` for secure configuration management.
+- **Expo**: Simplifies building, deploying, and testing React Native apps.
+- **Node.js & npm**: Used for running development scripts and managing dependencies.
+- **Git and GitHub**: For version control and collaboration, facilitating code management and pull requests.
+- **Android Studio / Xcode**: IDEs used for testing and debugging on Android and iOS.
+  
 ## Features
 
 - **All Entries Screen**: View a list of all meal entries with calorie counts.
@@ -20,18 +31,6 @@ The Calorie Tracker App is a cross-platform mobile application built using React
 - **Add Entry**: Add new meal entries with validation for calorie and description inputs.
   
   <img src="./assets/AddAnEntry.png" alt="Add Entry Screen" width="300"/>
-
-## Technologies Used
-
-- **React Native**: Framework for building the cross-platform mobile application.
-- **Firebase Firestore**: Cloud-hosted NoSQL database for backend database to store and sync data in real-time.
-- **React Navigation**: For navigating between screens using a nested navigation structure.
-- **Environment Variables**: Using `react-native-dotenv` or `react-native-config` for secure configuration management.
-- **JavaScript**: The primary programming language used for app development.
-- **Expo**: Simplifies building, deploying, and testing React Native apps.
-- **Git and GitHub**: For version control and collaboration, facilitating code management and pull requests.
-- **Android Studio / Xcode**: IDEs used for testing and debugging on Android and iOS.
-
 
 ## Setup Instructions
 
